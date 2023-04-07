@@ -1,0 +1,29 @@
+.center {
+   text-align: center;
+  }
+  table{
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  td{
+    text-align: center;
+  }
+  .search-box{
+    margin-left: auto;
+    margin-right: auto;
+    background: #d2d2d267;
+    width: 50%;
+    height:1.7cm;
+  }
+  .box1{
+    width: 37%;
+  } 
+  .box2{
+  width: 13%;
+    
+  }
+  .box3{
+    
+   width: 43%;
+  }
