@@ -1,0 +1,142 @@
+Kodluyoruz Sigorta Şirketi Asansör Simülasyonu
+
++---------------------+
+|       Simulasyon    |
++---------------------+
+| - saat: Saat        |
+| - yolcular: List<Yolcu> |
++---------------------+
+| + başlat(): void    |
+| + durdur(): void    |
+| + günlüğeKaydet(): void |
++---------------------+
+                |
+                v
++---------------------+
+|       Saat          |
++---------------------+
+| - zaman: DateTime   |
++---------------------+
+| + güncelle(): void  |
+| + zamanDamgasi(): DateTime |
++---------------------+
+                |
+                v
++---------------------+
+|       Yolcu         |
++---------------------+
+| - yolcuID: String   |
+| - kalkisKat: int    |
+| - varisKat: int     |
++---------------------+
+| + çağrıYap(): void  |
+| + hedefBelirle(): void |
++---------------------+
+                |
+                v
++---------------------+
+|        Asansör      |
++---------------------+
+| - asansörID: String |
+| - kapasite: int     |
+| - konum: int        |
++---------------------+
+| + hareketEt(kat: int): void |
+| + kapılarıAç(): void |
+| + kapılarıKapat(): void |
+| + durumGüncelle(): void |
++---------------------+
+        /|\
+         |
+         |
+         |
+         v
++--------------------+        +--------------------+
+| Kapı               |        | KontrolPaneli      |
++--------------------+        +--------------------+
+| - kapıID: String   |        | - panelID: String  |
+| - varisZili: VarisZili |    | - hedefDüğmeleri: List<Button> |
++--------------------+        | - kapıDüğmeleri: List<Button> |
+| + ziliÇal(): void  |        | - acilDurumDüğmesi: Button |
+| + ışıkYak(): void  |        | + düğmelereBas(): void |
++--------------------+        +--------------------+
+                             | + kapılarıAç(): void |
+                             | + kapılarıKapat(): void |
+                             +--------------------+
+                |
+                v
++---------------------+
+|       VarisZili      |
++---------------------+
+| - ziliID: String     |
++---------------------+
+| + çal(): void       |
++---------------------+
+                |
+                v
++---------------------+
+|     DışKapı         |
++---------------------+
+| - ışık: Işık         |
+| - kapı: Kapı         |
++---------------------+
+| + ışıkYak(): void   |
+| + kapılarıAç(): void|
+| + kapılarıKapat(): void |
++---------------------+
+                |
+                v
++---------------------+
+|         Işık         |
++---------------------+
+| - ışıkID: String     |
++---------------------+
+| + yan(): void       |
+| + sön(): void       |
++---------------------+
+
+Simulasyon Sınıfı:
+
+Simülasyonu başlatan ve durduran, günlüğe kaydeden ana sınıftır.
+Saat sınıfını içerir ve simülasyondaki yolcuları yönetir.
+Saat Sınıfı:
+
+Gerçek zaman geçişini simüle eder ve güncel zamanı sağlar.
+ZamanDamgasi() metodu, olayları zaman damgası ile günlüğe kaydetmek için kullanılır.
+Yolcu Sınıfı:
+
+Her yolcunun kalkış ve varış katlarını belirler.
+ÇağrıYap() ve HedefBelirle() metotları ile asansörü çağırır ve hedefini belirler.
+Asansör Sınıfı:
+
+Asansörlerin temel özelliklerini ve işlemlerini içerir.
+HareketEt(), KapılarıAç(), ve KapılarıKapat() metotları asansörün hareketini ve kapı işlemlerini yönetir.
+Kapı Sınıfı:
+
+Asansör kapılarının temel işlevlerini temsil eder.
+Her kapının bir VarisZili ve Işık bileşeni olabilir.
+KontrolPaneli Sınıfı:
+
+Asansör kontrol panelinin düğmeleri ve işlemleri içerir.
+DüğmelereBas(), KapılarıAç(), ve KapılarıKapat() metotları bulunur.
+VarisZili Sınıfı:
+
+Varış zili işlevini yerine getirir, asansörün bir kata varışını belirtir.
+Çal() metodu ile zilin çalmasını sağlar.
+DışKapı Sınıfı:
+
+Her katın dış kapısını temsil eder ve asansörlerin gelişini gösteren bir ışık ve kapı içerir.
+IşıkYak(), KapılarıAç(), ve KapılarıKapat() metotları bulunur.
+Işık Sınıfı:
+
+Kapı ışığının yanma ve sönme işlevlerini yönetir.
+Yan() ve Sön() metotlarına sahiptir.
+
+
+İlişkiler:
+Simulasyon ve Saat: Simülasyon, saat nesnesini kullanarak gerçek zaman geçişini simüle eder.
+Simulasyon ve Yolcu: Simülasyon, yolcuları yönetir.
+Asansör ve Kapı: Her asansör, her katta bulunan kapılarla etkileşimde bulunur.
+Kapı ve VarisZili: Kapılar, varış zilini içerir ve zili çalma işlevini yerine getirir.
+Asansör ve KontrolPaneli: Asansörler, kontrol paneli ile yönetilir.
+DışKapı ve Işık: Dış kapı, bir ışık bileşenine sahiptir ve asansörün gelişini gösterir.
