@@ -1,0 +1,103 @@
+Flight and Pilot Management System
+
++--------------------------------+
+|        HavaYoluSirketi          |
++--------------------------------+
+| - sirketID: String             |
+| - isim: String                 |
++--------------------------------+
+| + getUcuslar(): List<Ucus>     |
+| + getPilotlar(): List<Pilot>   |
++--------------------------------+
+                |
+                |
+                v
++--------------------------------+
+|             Ucus               |
++--------------------------------+
+| - ucusID: String               |
+| - kalkisHavaalani: Havaalani   |
+| - inisHavaalani: Havaalani     |
+| - kalkisSaati: DateTime        |
+| - inisSaati: DateTime          |
++--------------------------------+
+| + getPilot(): Pilot            |
+| + getYardimciPilot(): Pilot    |
++--------------------------------+
+                |
+                |
+                v
++--------------------------------+
+|             Ucak               |
++--------------------------------+
+| - ucakID: String               |
+| - ucakTipi: UcakTipi           |
+| - durumu: String               |  // "Çalışır" veya "Onarımda"
++--------------------------------+
+| + getDurum(): String           |
++--------------------------------+
+                ^
+                |
+      +------------------+
+      |                  |
++--------------------+   |
+|      Pilot         |   |
++--------------------+   |
+| - pilotID: String      |
+| - deneyimSeviyesi: int |
++------------------------+
+| + getDeneyimSeviyesi()  |
++------------------------+
+                |
+                v
++--------------------------------+
+|        UcakTipi                |
++--------------------------------+
+| - tipAdi: String               |
+| - gerekliPilotSayisi: int      |
++--------------------------------+
+| + getGerekliPilotSayisi(): int |
++--------------------------------+
+                ^
+                |
+                |
++--------------------------------+
+|         Havaalani              |
++--------------------------------+
+| - havaalaniID: String          |
+| - isim: String                 |
++--------------------------------+
+
+HavaYoluSirketi Sınıfı:
+
+Hava yolu şirketlerinin bir kimliği ve isimleri vardır.
+Her hava yolu şirketinin birden fazla uçuşu ve pilotları olabilir.
+Hava yolu şirketi, uçuşları ve pilotları yönetmek için metotlara sahiptir.
+Ucus Sınıfı:
+
+Her uçuşun benzersiz bir kimliği vardır.
+Kalkış ve iniş havaalanı bilgileri ile kalkış ve iniş saatleri gibi uçuşa özgü bilgiler içerir.
+Her uçuşun bir pilotu ve yardımcı pilotu vardır.
+Ucak Sınıfı:
+
+Her uçak, bir kimliğe ve bir tipe sahiptir.
+Uçaklar "Çalışır" veya "Onarımda" durumunda olabilirler.
+Uçaklar uçuşlarla ilişkilidir ve uçuşlar sırasında atanırlar.
+Pilot Sınıfı:
+
+Pilotlar hava yolu şirketleri tarafından istihdam edilir ve her pilotun benzersiz bir kimliği ve deneyim seviyesi vardır.
+Uçuşlara atanırlar ve uçakları kullanırlar.
+UcakTipi Sınıfı:
+
+Uçaklar belirli bir tipe sahip olabilirler (örneğin Boeing 737 veya Airbus A320 gibi).
+Her uçak tipi, belirli sayıda pilota ihtiyaç duyar.
+Havaalani Sınıfı:
+
+Havaalanlarının benzersiz kimlikleri ve isimleri vardır.
+Uçuşlar bu havaalanlarından kalkar ve iner.
+
+
+Polimorfizm ve İlişkiler:
+Uçuşlar ve Havaalanları: Her uçuş bir kalkış ve bir iniş havaalanı ile ilişkilidir.
+Pilotlar ve Uçuşlar: Her uçuş bir pilot ve bir yardımcı pilot gerektirir.
+Uçaklar ve Uçuşlar: Uçaklar, belirli uçuşlara atanır ve uçuş sırasında pilotlar tarafından kullanılır.
