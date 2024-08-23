@@ -1,0 +1,44 @@
+Animal Management System
++--------------------------------+
+|          <<abstract>>          |
+|           Hayvan               |
++--------------------------------+
+| - türAdı: String               |
+| - ağırlık: double              |
+| - yaş: int                     |
++--------------------------------+
+| + getDosage(): double          |
+| + getFeedSchedule(): String    |
++--------------------------------+
+                ^
+                |
+      -----------------------
+      |          |           |
++-------------+ +------------+ +--------------+
+|   Atlar     | | Kedigiller  | | Kemirgenler  |
++-------------+ +------------+ +--------------+
+|             | |            | |              |
++-------------+ +------------+ +--------------+
+| + getDosage(): double       | + getDosage(): double      |
+| + getFeedSchedule(): String | + getFeedSchedule(): String|
++-----------------------------+----------------------------+
+
+Hayvan Sınıfı (Hayvan - Abstract Class):
+
+Bu, tüm hayvan türleri için ortak olan özellikleri (tür adı, ağırlık, yaş) ve metotları (getDosage(), getFeedSchedule()) içeren soyut bir sınıftır.
+getDosage() ve getFeedSchedule() metotları soyut metotlardır ve her hayvan grubu tarafından uygulanması gerekir.
+Atlar Sınıfı (Atlar - Subclass):
+
+Atlar grubuna (atlar, zebralar, eşekler vb.) ait hayvanlar için spesifik bir sınıftır.
+Bu sınıfta, atlar için özel ilaç dozajı ve yem zamanlaması algoritması uygulanacaktır.
+Kedigiller Sınıfı (Kedigiller - Subclass):
+
+Kaplanlar, aslanlar gibi kedigiller grubuna ait hayvanlar için spesifik bir sınıftır.
+Bu sınıf kedigiller için ilaç dozajı ve yem zamanlaması algoritmalarını uygular.
+Kemirgenler Sınıfı (Kemirgenler - Subclass):
+
+Sıçanlar, kunduzlar gibi kemirgenler grubuna ait hayvanlar için spesifik bir sınıftır.
+Kemirgenler için ilaç dozajı ve yem zamanlaması bu sınıfta tanımlanır.
+
+Polimorfizm Kullanımı:
+getDosage() ve getFeedSchedule() metotları, her alt sınıfta farklı şekilde uygulanır. Polimorfizm sayesinde, hangi hayvan grubu olursa olsun aynı metot çağrıldığında doğru hesaplama yapılır.
