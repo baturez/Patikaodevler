@@ -1,0 +1,111 @@
+Online Movie Rental and Sales System
++--------------------------------+
+|          Kullanici              |
++--------------------------------+
+| - kullaniciID: String           |
+| - isim: String                 |
+| - email: String                |
+| - kredi: double                |
+| - abone: boolean               |
++--------------------------------+
+| + satınAlFilm(film: Film): void |
+| + kiralaFilm(film: Film): void  |
+| + yükleKredi(miktar: double): void |
+| + talepEt(film: Film): void     |
++--------------------------------+
+                |
+                ^
+                |
+    +-----------------------+
+    |                       |
++-------------------+  +-------------------+
+|   AboneKullanici  |  |   NormalKullanici |
++-------------------+  +-------------------+
+|                   |  |                   |
++-------------------+  +-------------------+
+| + kiralaFilm(film: Film): void | 
++-------------------+  +-------------------+
+                |
+                |
+                v
++--------------------------------+
+|              Film                |
++--------------------------------+
+| - filmID: String                |
+| - baslik: String                |
+| - tür: String                   |
+| - mevcut: boolean               |
+| - krediBedeli: double           |
++--------------------------------+
+| + mevcutMu(): boolean           |
+| + talepEdilebilirMi(): boolean  |
++--------------------------------+
+                ^
+                |
+                |
++--------------------------------+
+|          FilmTalebi            |
++--------------------------------+
+| - talepID: String             |
+| - film: Film                  |
+| - talepTarihi: DateTime       |
++--------------------------------+
+| + talepEt(): void              |
++--------------------------------+
+                |
+                |
+                v
++--------------------------------+
+|         FilmKatalogu            |
++--------------------------------+
+| - filmler: List<Film>           |
++--------------------------------+
+| + listeleFilmleri(): List<Film>|
+| + sıralaFilmleri(ölçüt: String): List<Film> |
++--------------------------------+
+                |
+                |
+                v
++--------------------------------+
+|           KrediSistemi          |
++--------------------------------+
+| - kullanıcılar: List<Kullanici> |
++--------------------------------+
+| + krediYükle(kullanici: Kullanici, miktar: double): void |
++--------------------------------+
+
+Kullanici Sınıfı:
+
+Temel kullanıcı bilgilerini (ID, isim, email) ve kredi miktarını içerir.
+Kullanıcıların film satın alabilme, kiralayabilme, kredi yükleyebilme ve film talep edebilme işlevlerini içerir.
+Abone özelliği, kullanıcının abone olup olmadığını belirtir.
+AboneKullanici Sınıfı:
+
+Abone olan kullanıcıların özelliklerini temsil eder.
+Aboneler, film kiralayabilirler.
+NormalKullanici Sınıfı:
+
+Normal kullanıcılar sadece film satın alabilirler; kiralama özelliğine sahip değillerdir.
+Film Sınıfı:
+
+Filmin bilgilerini (ID, başlık, tür, mevcut olup olmadığı ve kredi bedeli) içerir.
+Film mevcut mu ve talep edilebilir mi gibi durumları kontrol eden metotlara sahiptir.
+FilmTalebi Sınıfı:
+
+Talep edilen filmin bilgilerini ve talep tarihini içerir.
+Talep etme işlevini yönetir.
+FilmKatalogu Sınıfı:
+
+Filmleri listeleme ve sıralama işlevlerini sağlar.
+Filmlerin listesi ve sıralama ölçütleri yönetilir.
+KrediSistemi Sınıfı:
+
+Kullanıcıların kredi işlemlerini yönetir.
+Kredi yükleme işlevini içerir ve kullanıcılara kredi yükler.
+
+
+İlişkiler:
+Kullanici ve Film: Kullanıcılar filmleri satın alabilir veya kiralayabilir.
+Film ve FilmTalebi: Eğer film mevcut değilse, kullanıcılar talep edebilir.
+Kullanici ve KrediSistemi: Kullanıcılar kredi yükleyebilir ve bu kredilerle film kiralayabilirler.
+FilmKatalogu ve Film: Film katalogu filmleri listeleme ve sıralama işlevlerini yönetir.
